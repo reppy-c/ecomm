@@ -48,6 +48,11 @@ body {
   }
 
   @media (min-width: 1024px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    
+  }
+
+  @media (min-width: 1280px) {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   }
 }
@@ -110,9 +115,11 @@ body {
 }
 
 .product-tile img {
+  max-height: 315px;
   height: 100%;
   width: 100%;
-  object-fit: cover;
+  object-fit: scale-down;
+  object-position: bottom center;
   border-radius: 2px;
 }
 
