@@ -1,10 +1,12 @@
 body {
-  margin: 0;
+  margin: 60px 0 0 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+  
+  color: #333;
 }
 
 .container {
@@ -58,13 +60,26 @@ body {
   padding: 0.5rem 0 0 0;
 }
 
+.product-tile:focus {
+  outline-offset: 4px;
+}
+
+.product-image-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 .product-tile img {
   height: 100%;
   width: 100%;
   object-fit: cover;
+  border-radius: 2px;
 }
 
-.cabin-500 {
+h3, .cabin-500 {
+  margin: 0;
   font-family: "Cabin", serif;
   font-optical-sizing: auto;
   font-weight: 500;
@@ -87,13 +102,23 @@ body {
 .clamp {
   display: -webkit-box; 
   -webkit-box-orient: vertical; 
-  -webkit-line-clamp: 2;       
-  line-clamp: 2;
-  overflow: hidden;            
+  -webkit-line-clamp: 1;       
+  line-clamp: 1;
+  overflow: hidden;
 }
 
 .title {
   margin-bottom: 0.0;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #333;
 }
 
 .author {
@@ -111,5 +136,14 @@ body {
 }
 
 .offer {
+  color: #D6420B;
+}
+
+.price.strikethrough {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.price.sale {
   color: #D6420B;
 }
