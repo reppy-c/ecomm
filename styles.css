@@ -1,0 +1,87 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+#theGrid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    row-gap: 3.75rem;
+    margin: 0 2rem;
+}
+
+#theGrid .product-tile {
+    display:flex;
+    flex-direction: column;
+    align-content: flex-end;
+    margin-top: auto;
+    overflow: hidden;
+}
+
+#theGrid .product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-height: 8.5rem;
+    max-width: 9.688rem;
+    padding: 0.5rem 0 0 0;
+}
+
+#theGrid div img {
+    max-width: 9.68rem;
+    object-fit: scale-down;
+}
+
+.cabin-500 {
+    font-family: "Cabin", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 98;
+  }
+
+  .cabin-meta {
+    font-family: "Cabin", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 98;
+  }
+
+  .clamp {
+    display: -webkit-box;        /* Required for line clamping */
+    -webkit-box-orient: vertical; /* Sets the box's orientation to vertical */
+    -webkit-line-clamp: 1;       /* Number of lines to show */
+    overflow: hidden;            /* Hides the overflowing text */
+  }
+
+  .title {
+    margin-bottom: 0.0;
+  }
+
+  .author {
+    margin-bottom: 0.5rem;
+  }
+
+  .format {
+    margin-bottom: 0;
+  }
+
+  .price {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    font-size: 0.9375rem;
+  }
+
+  .offer {
+    color: #D6420B;
+  }
