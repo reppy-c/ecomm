@@ -12,31 +12,41 @@ body {
   width: calc(100%-2rem);
   max-width: 1024px;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     margin: 0 1rem;
+  }
+
+  @media (min-width: 1024px) {
+    margin: 0 2rem;
   }
 }
 
 #product-grid {
-  display: flex;
-  flex-flow: wrap;
-  gap: 0.5rem;
-  row-gap: 3.75rem;
+  display: grid;
+  column-gap: 8px;
+  row-gap: 60px;
 
-  /* background-color: palegoldenrod; */
-  max-width: 100%;
+  @media (min-width: 368px) {
+    grid-template-columns: 1fr 1fr;
+  }
 
+  @media (min-width: 528px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  
+  @media (min-width: 1024px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
 }
-
 
 .product-tile {
   display:flex;
   flex-direction: column;
   margin-top: auto;
-  overflow: hidden;
-  /*background-color: palegreen; */
-
-  flex: 1 1 20%;
   min-width: 160px;
 }
 
@@ -45,7 +55,6 @@ body {
   flex-direction: column;
   gap: 0.15rem;
   min-height: 8.5rem;
-  /*max-width: 9.688rem;*/
   padding: 0.5rem 0 0 0;
 }
 
@@ -54,8 +63,6 @@ body {
   width: 100%;
   object-fit: cover;
 }
-
-
 
 .cabin-500 {
   font-family: "Cabin", serif;
@@ -78,11 +85,11 @@ body {
 }
 
 .clamp {
-  display: -webkit-box;        /* Required for line clamping */
-  -webkit-box-orient: vertical; /* Sets the box's orientation to vertical */
-  -webkit-line-clamp: 2;       /* Number of lines to show */
+  display: -webkit-box; 
+  -webkit-box-orient: vertical; 
+  -webkit-line-clamp: 2;       
   line-clamp: 2;
-  overflow: hidden;            /* Hides the overflowing text */
+  overflow: hidden;            
 }
 
 .title {
