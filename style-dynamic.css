@@ -37,7 +37,7 @@ body {
   row-gap: 50px;
 }
 
-#product-grid.fullscreen {
+#product-grid {
   @media (min-width: 368px) {
     grid-template-columns: auto auto;
   }
@@ -140,7 +140,7 @@ h3, .cabin-500 {
   font-family: "Cabin", serif;
   font-optical-sizing: auto;
   font-weight: 500;
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   font-style: normal;
   font-variation-settings:
     "wdth" 98;
