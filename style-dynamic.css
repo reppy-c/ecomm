@@ -1,5 +1,5 @@
 body {
-  margin: 60px 0 0 0;
+  margin: 30px 0 0 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,11 +14,10 @@ body {
   display: flex;
   flex-direction: row;
   gap: 1rem;
-  
-  width: calc(100%-2rem);
-  max-width: 1280px;
 
   margin: 0 0.5rem;
+  /* width: calc(100vw-2rem); */
+  max-width: 1280px;
 
   @media (min-width: 768px) {
     margin: 0 1rem;
@@ -29,70 +28,68 @@ body {
   }
 }
 
+/******************************************************************************************/
+
 #product-grid {
   display: grid;
   column-gap: 8px;
-  row-gap: 60px;
+  align-content: space-between;
+  row-gap: 50px;
 }
 
 #product-grid.fullscreen {
   @media (min-width: 368px) {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto auto;
   }
 
   @media (min-width: 528px) {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: auto auto auto;
   }
 
-  @media (min-width: 768px) {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+  @media (min-width: 700px) {
+    grid-template-columns: auto auto auto auto;
   }
 
-  @media (min-width: 1024px) {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    
+  @media (min-width: 940px) {
+    grid-template-columns: auto auto auto auto auto;
   }
 
-  @media (min-width: 1280px) {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  @media (min-width: 1200px) {
+    grid-template-columns: auto auto auto auto auto auto;
   }
 }
 
-#product-grid.sidebar {
-
-  /* Should really be mobile until 768 */
-
+#product-grid.gm {
   @media (min-width: 368px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: auto auto;
   }
 
   @media (min-width: 528px) {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto auto;
   }
 
-  @media (min-width: 768px) {
-    grid-template-columns: 1fr 1fr 1fr;
+  @media (min-width: 700px) {
+    grid-template-columns: auto auto auto;
   }
 
-  @media (min-width: 1024px) {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+  @media (min-width: 940px) {
+    grid-template-columns: auto auto auto auto;
   }
 
-  @media (min-width: 1280px) {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  @media (min-width: 1200px) {
+    grid-template-columns: auto auto auto auto auto;
   }
 }
 
-#left-sidebar {
-  min-width:250px;
-  background-color: paleturquoise;
+.product-cell {
+  /* background-color: palevioletred; */
+  margin: auto auto 0 auto;
 }
 
 .product-tile {
-  display:flex;
-  flex-direction: column;
-  margin-top: auto;
+  display: inline-block;
   min-width: 160px;
+  /* background-color: palegoldenrod; */
 }
 
 .product-tile .product-info {
@@ -101,10 +98,6 @@ body {
   gap: 0.15rem;
   min-height: 8.5rem;
   padding: 0.5rem 0 0 0;
-}
-
-.product-tile:focus {
-  outline-offset: 4px;
 }
 
 .product-image-container {
@@ -116,12 +109,30 @@ body {
 }
 
 .product-tile img {
-  max-height: 315px;
+  /* max-height: 315px; */
   height: 100%;
+  max-height: 320px;
   width: 100%;
   object-fit: scale-down;
   object-position: bottom center;
   border-radius: 2px;
+}
+
+.product-tile:focus {
+  outline-offset: 4px;
+}
+
+/******************************************************************************************/
+
+h2, .cabin-500 {
+  margin: 0 0 2rem 0;
+  font-family: "Cabin", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-size: 1.75rem;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 98;
 }
 
 h3, .cabin-500 {
@@ -129,7 +140,7 @@ h3, .cabin-500 {
   font-family: "Cabin", serif;
   font-optical-sizing: auto;
   font-weight: 500;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   font-style: normal;
   font-variation-settings:
     "wdth" 98;
@@ -181,10 +192,6 @@ a:hover {
   font-size: 0.9375rem;
 }
 
-.offer {
-  color: #D6420B;
-}
-
 .price.strikethrough {
   text-decoration: line-through;
   color: #888;
@@ -192,6 +199,11 @@ a:hover {
 
 .price.sale {
   color: #D6420B;
+}
+
+.offer {
+  color: #D6420B;
+  font-size: 0.8rem;
 }
 
 .badge {
@@ -214,4 +226,12 @@ a:hover {
   color: #444;
   text-transform: uppercase;
   opacity:0.9;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #000;
+  height: 1px;
+  width: 100vw;
+  margin: 2rem 0 2.5rem 0;
 }
