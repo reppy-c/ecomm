@@ -66,9 +66,9 @@ body {
     grid-template-columns: auto auto auto auto auto;
   }
 
-  @media (min-width: 1200px) {
+  /* @media (min-width: 1200px) {
     grid-template-columns: auto auto auto auto auto auto;
-  }
+  } */
 }
 
 #product-grid.gm {
@@ -84,13 +84,13 @@ body {
     grid-template-columns: auto auto auto;
   }
 
-  @media (min-width: 940px) {
+  @media (min-width: 1024px) {
     grid-template-columns: auto auto auto auto;
   }
 
-  @media (min-width: 1200px) {
+  /* @media (min-width: 1200px) {
     grid-template-columns: auto auto auto auto auto;
-  }
+  } */
 }
 
 #product-grid.sidebar {
