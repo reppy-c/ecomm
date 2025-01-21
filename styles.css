@@ -30,9 +30,21 @@ body {
 
 /******************************************************************************************/
 
+
+#sidebar {
+  min-width:250px;
+  background-color: palegoldenrod;
+
+  display: none;
+
+  @media (min-width: 940px) {
+    display:block;
+  }
+}
+
 #product-grid {
   display: grid;
-  column-gap: 8px;
+  column-gap: 12px;
   align-content: space-between;
   row-gap: 50px;
 }
@@ -77,6 +89,33 @@ body {
   }
 
   @media (min-width: 1200px) {
+    grid-template-columns: auto auto auto auto auto;
+  }
+}
+
+#product-grid.sidebar {
+
+  @media (min-width: 368px) {
+    grid-template-columns: auto auto;
+  }
+
+  @media (min-width: 528px) {
+    grid-template-columns: auto auto auto;
+  }
+
+  @media (min-width: 700px) {
+    grid-template-columns: auto auto auto auto;
+  }
+
+  @media (min-width: 940px) {
+    grid-template-columns: auto auto auto;
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: auto auto auto auto;
+  }
+
+  @media (min-width: 1280px) {
     grid-template-columns: auto auto auto auto auto;
   }
 }
@@ -140,7 +179,7 @@ h3, .cabin-500 {
   font-family: "Cabin", serif;
   font-optical-sizing: auto;
   font-weight: 500;
-  font-size: 0.75rem;
+  font-size: 0.938rem;
   font-style: normal;
   font-variation-settings:
     "wdth" 98;
@@ -162,6 +201,7 @@ h3, .cabin-500 {
   -webkit-line-clamp: 1;       
   line-clamp: 1;
   overflow: hidden;
+  padding-right: 4px;
 }
 
 .title {
@@ -234,4 +274,8 @@ hr {
   height: 1px;
   width: 100vw;
   margin: 2rem 0 2.5rem 0;
+}
+
+.hide {
+  display: none;
 }
