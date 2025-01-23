@@ -36,6 +36,8 @@ body {
 
 /******************************************************************************************/
 /* Product grid styles */
+/* Book tiles are fixed size due to the variable nature of size and finding a good size on
+/* browsers that feels tile-like but has enough space for titles underneath the books    */
 
 #product-grid {
   flex-grow: 1;
@@ -44,6 +46,28 @@ body {
   gap: 60px 12px;
   justify-content: center;
 }
+
+/* GM overrides makes tiles bigger and scale, these are dynamic to the space available
+/* 932px for 5UP book + gap
+/* 224px for 4UP GM + gap
+/* 302px for 3UP GM + gap */
+
+#product-grid.gm {
+  grid-template-columns: repeat(auto-fill, minmax(224px, 1fr));
+}
+
+#product-grid.gm .product-tile {
+  width: 100%;
+}
+
+#product-grid.gm .product-tile img {
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+  max-height: 100%;
+}
+
+/* End GM */
 
 .product-tile {
   margin: auto auto 0 auto;
@@ -90,8 +114,8 @@ body {
   
   display: inline-block;
   position: absolute;
-  opacity:0.9;
-  inset: 5px 5px 0 0;
+  inset: 5px 5px auto auto;
+  opacity 0.9;
   
   background-color: #fff;
   border-radius: 3px;
