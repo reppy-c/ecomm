@@ -123,10 +123,16 @@
         const modal = document.querySelector('.modal');
         const closeButton = document.querySelector('.close-button');
         const video = document.querySelector('video');
+        const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
         modalTrigger.addEventListener('click', () => {
             modal.classList.add('active');
             video.play();
+
+            if (isMobile) {
+            // Add additional event listeners or conditions for non-mobile devices here
+            modal.classList.remove('active');
+        }
         });
 
         closeButton.addEventListener('click', () => {
@@ -157,6 +163,7 @@
             video.pause();
             video.currentTime = 0;
         }
+    }
     });
     </script>
 </body>
