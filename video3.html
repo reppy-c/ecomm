@@ -91,12 +91,17 @@
         .modal video {
             width: 100%;
             border-radius: 8px;
+            max-height: 80vh;
         }
 
         @media (max-width: 768px) {
             .close-button {
                 top: -50px;
                 right: 0;
+            }
+            
+            .modal {
+                padding: 10px;
             }
         }
     </style>
@@ -110,7 +115,7 @@
     <div class="modal" id="videoModal">
         <div class="modal-content">
             <button class="close-button" aria-label="Close modal">×</button>
-            <video controls playsinline>
+            <video id="videoPlayer" controls>
                 <source src="https://assets.indigoimages.ca/asset/1d5015c6-2255-4e96-b64f-184dacbb0e25/mp4/Midnight-Release_V02.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -129,9 +134,40 @@
             video.currentTime = 0;
         }
 
+        function handleFullscreenChange() {
+            if (
+                !document.fullscreenElement && 
+                !document.webkitFullscreenElement && 
+                !document.mozFullScreenElement && 
+                !document.msFullscreenElement
+            ) {
+                closeModal();
+            }
+        }
+
         modalTrigger.addEventListener('click', () => {
             modal.classList.add('active');
-            video.play();
+            // Small delay to ensure modal is visible before playing
+            setTimeout(() => {
+                video.play()
+                    .then(() => {
+                        // On mobile, request fullscreen after play starts
+                        if (/Mobi|Android/i.test(navigator.userAgent)) {
+                            if (video.requestFullscreen) {
+                                video.requestFullscreen();
+                            } else if (video.webkitRequestFullscreen) {
+                                video.webkitRequestFullscreen();
+                            } else if (video.mozRequestFullScreen) {
+                                video.mozRequestFullScreen();
+                            } else if (video.msRequestFullscreen) {
+                                video.msRequestFullscreen();
+                            }
+                        }
+                    })
+                    .catch(error => {
+                        console.log("Playback failed:", error);
+                    });
+            }, 100);
         });
 
         closeButton.addEventListener('click', closeModal);
@@ -148,31 +184,36 @@
             }
         });
 
-        // Handle fullscreen change events
-        document.addEventListener('fullscreenchange', () => {
-            if (!document.fullscreenElement && modal.classList.contains('active')) {
+        // Combined fullscreen change handler
+        document.addEventListener('fullscreenchange', handleFullscreenChange);
+        document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+        document.addEventListener('mozfullscreenchange', handleFullscreenChange);
+        document.addEventListener('MSFullscreenChange', handleFullscreenChange);
+
+        // Handle video entering fullscreen
+        video.addEventListener('enterpictureinpicture', () => {
+            if (modal.classList.contains('active')) {
                 closeModal();
             }
         });
 
-        document.addEventListener('webkitfullscreenchange', () => {
-            if (!document.webkitFullscreenElement && modal.classList.contains('active')) {
-                closeModal();
+        // Handle video ending
+        video.addEventListener('ended', () => {
+            if (document.fullscreenElement || 
+                document.webkitFullscreenElement || 
+                document.mozFullScreenElement || 
+                document.msFullscreenElement) {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
             }
-        });
-
-        // For Mozilla
-        document.addEventListener('mozfullscreenchange', () => {
-            if (!document.mozFullScreenElement && modal.classList.contains('active')) {
-                closeModal();
-            }
-        });
-
-        // For MS
-        document.addEventListener('MSFullscreenChange', () => {
-            if (!document.msFullscreenElement && modal.classList.contains('active')) {
-                closeModal();
-            }
+            closeModal();
         });
     </script>
 </body>
