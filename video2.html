@@ -127,12 +127,13 @@
 
         modalTrigger.addEventListener('click', () => {
             modal.classList.add('active');
+            video.currentTime = 0;
             video.play();
 
             if (isMobile) {
-            // Add additional event listeners or conditions for non-mobile devices here
-            modal.classList.remove('active');
-        }
+                // Add additional event listeners or conditions for non-mobile devices here
+                modal.classList.remove('active');
+            }
         });
 
         closeButton.addEventListener('click', () => {
