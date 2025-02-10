@@ -150,6 +150,14 @@
                 video.currentTime = 0;
             }
         });
+
+        document.addEventListener('fullscreenchange', () => {
+        if (!document.fullscreenElement && modal.classList.contains('active')) {
+            modal.classList.remove('active');
+            video.pause();
+            video.currentTime = 0;
+        }
+    });
     </script>
 </body>
 </html>
