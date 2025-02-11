@@ -28,13 +28,18 @@
 
     <script>
         const video = document.getElementById('vidPlayer');
+        var firstClick = false;
 
         // video.addEventListener('mouseover', () => {
            
         // });
 
         video.addEventListener('click', () => {
-            video.play();
+            if(!firstClick) {
+                video.play();
+                firstClick = true;
+            }
+
             video.controls = true;
         });
 
