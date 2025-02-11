@@ -30,7 +30,11 @@
         const video = document.getElementById('vidPlayer');
 
         video.addEventListener('mouseover', () => {
-            video.controls = true;
+           // video.controls = true;
+        });
+
+        video.addEventListener('click', () => {
+            video.play();
         });
 
         video.addEventListener('mouseout', () => {
@@ -40,3 +44,4 @@
 
 </body>
 </html>
+
