@@ -142,6 +142,11 @@
         </div>
     </div>
 
+    <video id="mVidPlayer" width="340" height="240" poster="play.png">
+        <source src="https://assets.indigoimages.ca/asset/1d5015c6-2255-4e96-b64f-184dacbb0e25/mp4/Midnight-Release_V02.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
     <script>
         const modalTrigger = document.querySelector('.modal-trigger');
         const modal = document.querySelector('.modal');
@@ -171,6 +176,41 @@
                 modal.classList.remove('active');
                 video.pause();
             }
+        });
+
+        // MOBILE MOBILE MOBILE ////////////////////////////////////////////
+        
+        const mVideo = document.getElementById('mVidPlayer');
+        var firstClick = false;
+
+        mVideo.addEventListener('click', () => {
+            if(!firstClick) {
+                mVideo.play();
+                firstClick = true;
+            }
+            mVideo.controls = true;
+        });
+
+        mVideo.addEventListener('ended', () => {
+            // Try exiting fullscreen on document first
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.webkitExitFullscreen) {
+                document.webkitExitFullscreen();
+            } else if (document.mozCancelFullScreen) {
+                document.mozCancelFullScreen();
+            } else if (document.msExitFullscreen) {
+                document.msExitFullscreen();
+            }
+            // If that didn't work, try on the video element
+            else if (mVideo.exitFullscreen) {
+                mVideo.exitFullscreen();
+            } else if (mVideo.webkitExitFullscreen) {
+                mVideo.webkitExitFullscreen();
+            }
+
+            firstClick = false;
+            mVideo.controls
         });
 
     </script>
