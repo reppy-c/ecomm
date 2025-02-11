@@ -8,8 +8,8 @@
         .modal-trigger {
             position: relative;
             cursor: pointer;
-            display: inline-block;
-            max-width: 640px;
+            max-width: 340px;
+            border: 1px solid grey;
             width: 100%;
         }
 
@@ -125,17 +125,11 @@
         const modal = document.querySelector('.modal');
         const closeButton = document.querySelector('.close-button');
         const video = document.querySelector('video');
-        const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
         modalTrigger.addEventListener('click', () => {
             modal.classList.add('active');
             video.currentTime = 0;
             video.play();
-
-            if (isMobile) {
-                // Add additional event listeners or conditions for non-mobile devices here
-                modal.classList.remove('active');
-            }
         });
 
         closeButton.addEventListener('click', () => {
@@ -157,14 +151,6 @@
             }
         });
 
-        // dont think i need this, its for mobile
-        // document.addEventListener('fullscreenchange', () => {
-        //     if (!document.fullscreenElement && modal.classList.contains('active')) {
-        //         modal.classList.remove('active');
-        //         video.pause();
-        //         video.currentTime = 0;
-        //     }
-        // });
     </script>
 </body>
 </html>
