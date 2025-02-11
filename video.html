@@ -29,12 +29,13 @@
     <script>
         const video = document.getElementById('vidPlayer');
 
-        video.addEventListener('mouseover', () => {
-           // video.controls = true;
-        });
+        // video.addEventListener('mouseover', () => {
+           
+        // });
 
         video.addEventListener('click', () => {
             video.play();
+            video.controls = true;
         });
 
         video.addEventListener('mouseout', () => {
