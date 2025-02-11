@@ -20,32 +20,20 @@
         Your browser does not support the video tag.
     </video>
 
-    <video id="vidPlayer2" width="320" height="240" controls  poster="play.png">
-        <source src="https://assets.indigoimages.ca/asset/1d5015c6-2255-4e96-b64f-184dacbb0e25/mp4/Midnight-Release_V02.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
 
 
     <script>
         const video = document.getElementById('vidPlayer');
         var firstClick = false;
 
-        // video.addEventListener('mouseover', () => {
-           
-        // });
-
         video.addEventListener('click', () => {
             if(!firstClick) {
                 video.play();
                 firstClick = true;
             }
-
             video.controls = true;
         });
 
-        video.addEventListener('mouseout', () => {
-            video.controls = false;
-        });
     </script>
 
 </body>
