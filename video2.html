@@ -45,8 +45,10 @@
         }
 
         .modal {
-            display: none;
+            display: flex;
             position: fixed;
+            align-items: center;
+            justify-content: center;
             top: 0;
             left: 0;
             width: 100%;
@@ -55,12 +57,14 @@
             z-index: 1000;
             padding: 20px;
             box-sizing: border-box;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
         }
 
         .modal.active {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            opacity: 1;
+            visibility: visible;
         }
 
         .modal-content {
@@ -137,14 +141,12 @@
         closeButton.addEventListener('click', () => {
             modal.classList.remove('active');
             video.pause();
-            video.currentTime = 0;
         });
 
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
                 modal.classList.remove('active');
                 video.pause();
-                video.currentTime = 0;
             }
         });
 
@@ -152,17 +154,17 @@
             if (e.key === 'Escape' && modal.classList.contains('active')) {
                 modal.classList.remove('active');
                 video.pause();
-                video.currentTime = 0;
             }
         });
 
-        document.addEventListener('fullscreenchange', () => {
-            if (!document.fullscreenElement && modal.classList.contains('active')) {
-                modal.classList.remove('active');
-                video.pause();
-                video.currentTime = 0;
-            }
-        });
+        // dont think i need this, its for mobile
+        // document.addEventListener('fullscreenchange', () => {
+        //     if (!document.fullscreenElement && modal.classList.contains('active')) {
+        //         modal.classList.remove('active');
+        //         video.pause();
+        //         video.currentTime = 0;
+        //     }
+        // });
     </script>
 </body>
 </html>

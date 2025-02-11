@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Video Modal Mobile</title>
-
 </head>
 <body>
 
@@ -25,7 +24,6 @@
             video.controls = true;
         });
 
-        // Exit fullscreen when video ends
         video.addEventListener('ended', () => {
             // Try exiting fullscreen on document first
             if (document.exitFullscreen) {
