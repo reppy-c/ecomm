@@ -25,6 +25,26 @@
             video.controls = true;
         });
 
+        // Exit fullscreen when video ends
+        video.addEventListener('ended', () => {
+            // Try exiting fullscreen on document first
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.webkitExitFullscreen) {
+                document.webkitExitFullscreen();
+            } else if (document.mozCancelFullScreen) {
+                document.mozCancelFullScreen();
+            } else if (document.msExitFullscreen) {
+                document.msExitFullscreen();
+            }
+            // If that didn't work, try on the video element
+            else if (video.exitFullscreen) {
+                video.exitFullscreen();
+            } else if (video.webkitExitFullscreen) {
+                video.webkitExitFullscreen();
+            }
+        });
+
     </script>
 
 </body>
