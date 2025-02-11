@@ -110,11 +110,23 @@
             max-width: 800px;
             flex-direction: row;
             height: 150px;
-            background-color: #efefef;
+            
+        }
+
+        #component.mobile {
+            flex-direction: column;
+            height: fit-content;
         }
 
         .restOfBanner {
             flex-grow: 2;
+            background-color: #efefef;
+        }
+
+        #mVidPlayer {
+            width: 100%;
+            max-height: 300px;
+            border: 1px solid grey;
         }
 
     </style>
@@ -123,7 +135,7 @@
     
     <div id="component">
         <div class="restOfBanner">
-            <h1>Midnight Release</h1>
+            <h1>Midnight Release DESKTOP</h1>
             <p>Watch the trailer for Midnight Release</p>
         </div>
         <div class="modal-trigger">
@@ -131,6 +143,8 @@
             <div class="play-button"></div>
         </div>
     </div>
+
+    <br/><br/><br/>
 
     <div class="modal" id="videoModal">
         <div class="modal-content">
@@ -142,10 +156,16 @@
         </div>
     </div>
 
-    <video id="mVidPlayer" width="340" height="240" poster="play.png">
+    <div id="component" class="mobile">
+    <div class="restOfBanner">
+        <h1>Midnight Release MOBILE</h1>
+        <p>Watch the trailer for Midnight Release</p>
+    </div>
+    <video id="mVidPlayer" poster="play.png">
         <source src="https://assets.indigoimages.ca/asset/1d5015c6-2255-4e96-b64f-184dacbb0e25/mp4/Midnight-Release_V02.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
+    </div>
 
     <script>
         const modalTrigger = document.querySelector('.modal-trigger');
